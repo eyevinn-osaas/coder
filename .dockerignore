@@ -21,3 +21,6 @@
 !dogfood/coder/ubuntu-26.04/Dockerfile.base
 !dogfood/coder/ubuntu-26.04/files
 !dogfood/coder/ubuntu-26.04/files/**
+
+# OSC: re-allow the entrypoint consumed by Dockerfile.osc.
+!osc-entrypoint.sh
