@@ -1,0 +1,12 @@
+# OSC build of Coder: wraps the official release image (built from this repo's
+# tagged release) with an entrypoint that adapts OSC platform variables.
+FROM ghcr.io/coder/coder:v2.38.10
+
+USER root
+RUN apk add --no-cache bash
+COPY --chmod=755 osc-entrypoint.sh /usr/local/bin/osc-entrypoint.sh
+USER 1000:1000
+
+EXPOSE 8080
+ENTRYPOINT ["/usr/local/bin/osc-entrypoint.sh"]
+CMD ["/opt/coder", "server"]
